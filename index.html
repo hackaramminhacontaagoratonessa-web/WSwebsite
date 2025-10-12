@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>WS Moddz</title>
+  <meta property="og:title" content="WS Moddz — Upagem GTA Enhanced / Legacy">
+  <meta property="og:description" content="Upagem profissional de contas GTA. Planos variados.">
+  <meta property="og:type" content="website">
+  <style>
+    :root{
+      --bg:#000000;
+      --cyan:#00eaff;
+      --cyan-strong:#00bcd4;
+      --muted:#9ad7e0;
+      --green:#2ef55b;
+      --purple:#9b59b6;
+    }
+
+    html,body{ height:100%; margin:0; background:var(--bg); color:var(--cyan); font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x:hidden; }
+
+    #background {
+      position:fixed;
+      top:0; left:0; width:100%; height:100%; z-index:-2;
+      background: linear-gradient(120deg, #000000, #001f33, #000000);
+      background-size: 200% 200%;
+      animation: gradientAnim 20s ease infinite;
+    }
+
+    @keyframes gradientAnim {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    canvas#particles {
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:-1;
+    }
+
+    header{ position:fixed; left:0; right:0; top:0; height:64px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(0,234,255,0.08); backdrop-filter:blur(6px); z-index:40; animation:fadeDown 0.8s ease; }
+    @keyframes fadeDown{ from{opacity:0; transform:translateY(-20px);} to{opacity:1; transform:translateY(0);} }
+
+    .brand h1{ font-size:18px; margin:0; color:var(--cyan); letter-spacing:0.6px; font-weight:800; }
+    nav{ display:flex; gap:12px; align-items:center; }
+    nav a{ color:var(--muted); text-decoration:none; font-size:13px; border:1px solid rgba(0,234,255,0.08); padding:8px 12px; border-radius:8px; transition:all .3s ease; }
+    nav a:hover{ background:rgba(0,234,255,0.1); color:#fff; box-shadow:0 0 10px rgba(0,234,255,0.3); }
+
+    main{ padding-top:88px; max-width:1200px; margin:0 auto; width:100%; }
+    .hero{ display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 22px; min-height:calc(100vh - 88px); animation:fadeIn 1s ease; }
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+    .eyebrow{ font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:1.6px; margin-bottom:18px; }
+    .title{ font-size:42px; line-height:1.03; margin:0 0 14px 0; color:var(--cyan); font-weight:800; text-align:center; }
+    .lead{ font-size:16px; color:rgba(154,215,224,0.9); margin-bottom:40px; text-align:center; max-width:640px; }
+
+    .plans{ display:flex; flex-direction:column; gap:18px; width:100%; max-width:600px; margin:0 auto; }
+    .plan{ border:1px solid rgba(0,234,255,0.1); border-radius:10px; background:rgba(0,234,255,0.04); padding:18px 20px; cursor:pointer; transition:all .4s ease; position:relative; overflow:hidden; }
+    .plan::after{ content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(120deg, transparent, rgba(0,234,255,0.1), transparent); transition:all .5s ease; }
+    .plan:hover::after{ left:100%; }
+    .plan:hover{ background:rgba(0,234,255,0.08); transform:translateY(-4px); box-shadow:0 0 15px rgba(0,234,255,0.2); }
+    .plan h3{ margin:0; color:var(--cyan); font-size:20px; transition:color .3s ease; }
+    .plan:hover h3{ color:#fff; }
+
+    .plan-details{ max-height:0; overflow:hidden; opacity:0; transform:translateY(-10px); transition:max-height .5s ease, opacity .5s ease, transform .4s ease; color:var(--muted); font-size:14px; margin-top:10px; line-height:1.5; }
+    .plan.active .plan-details{ max-height:400px; opacity:1; transform:translateY(0); }
+    .price{ margin-top:8px; color:var(--cyan-strong); font-weight:bold; }
+
+    footer{ margin-top:60px; padding:28px 18px; text-align:center; color:var(--muted); border-top:1px solid rgba(0,234,255,0.04); background:transparent; animation:fadeIn 1s ease; }
+
+    /* Aba de contato estilo tab inferior */
+    #contactMenu {
+      position:fixed;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(0,234,255,0.12);
+      border:1px solid rgba(0,234,255,0.3);
+      border-radius:12px 12px 0 0;
+      backdrop-filter:blur(10px);
+      padding:12px 24px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:15px;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      z-index:50;
+      box-shadow:0 -4px 20px rgba(0,234,255,0.3);
+      max-width:320px;
+    }
+    #contactMenu h4{
+      margin:0;
+      color:var(--cyan);
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:0.5px;
+    }
+    #contactMenu .contact-item{
+      display:flex;
+      justify-content:space-between;
+      width:100%;
+      padding:6px 12px;
+      border-radius:6px;
+      transition:all .3s ease;
+    }
+    #contactMenu .contact-item span.type{ font-weight:700; }
+    #contactMenu .contact-item span.value.whatsapp{ color:var(--green); }
+    #contactMenu .contact-item span.value.discord{ color:var(--purple); }
+  </style>
+</head>
+<body>
+
+<div id="background"></div>
+<canvas id="particles"></canvas>
+<header>
+  <div class="brand">
+    <h1>WS Moddz</h1>
+  </div>
+  <nav>
+    <a href="#planos">Planos</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">WS Moddz • Upagem de Contas GTA</div>
+    <h2 class="title">Escolha o plano ideal para sua conta GTA.</h2>
+    <p class="lead">De Basic até Expert — variedade de opções para todas as versões e perfis de jogador.</p>
+
+    <div class="plans" id="planos">
+      <div class="plan">
+        <h3>Basic</h3>
+        <div class="plan-details">
+          Unlocks básicos<br>
+          Trajes modded<br>
+          5 veículos (escolha do cliente)<br>
+          $ 40 milhões<br>
+          Level 120<br>
+          <div class="price">Preço: R$20</div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Standard</h3>
+        <div class="plan-details">
+          Unlocks avançados<br>
+          Trajes modded<br>
+          10 veículos (escolha do cliente)<br>
+          $ 60 milhões<br>
+          Level 240<br>
+          <div class="price">Preço: R$35</div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Premium</h3>
+        <div class="plan-details">
+          Unlock all (Todos os unlocks)<br>
+          Trajes modded<br>
+          15 veículos (escolha do cliente)<br>
+          $ 100 milhões<br>
+          Level 480<br>
+          <div class="price">Preço: R$50</div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Expert</h3>
+        <div class="plan-details">
+          Unlock all (Todos os unlocks)<br>
+          Trajes modded<br>
+          25 veículos (escolha do cliente)<br>
+          $ 250 milhões<br>
+          Level (a escolha do cliente, máximo: 8000)<br>
+          <div class="price">Preço: R$80</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer></footer>
+</main>
+
+<div id="contactMenu">
+  <h4>Contato</h4>
+  <div class="contact-item"><span class="type">Whatsapp:</span> <span class="value whatsapp">+55 15991285655</span></div>
+  <div class="contact-item"><span class="type">Discord:</span> <span class="value discord">brahug1_</span></div>
+  <div class="contact-item"><span class="type">Servidor:</span> <span class="value discord">discord.gg/wyZy3gbBzJ</span></div>
+</div>
+
+<script>
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let particles = [];
+for(let i=0;i<100;i++){ particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2+1, d: Math.random()*1 }); }
+function drawParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='rgba(0,234,255,0.2)'; particles.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false); ctx.fill(); p.y -= p.d; if(p.y<0){ p.y = canvas.height; p.x = Math.random()*canvas.width; } }); requestAnimationFrame(drawParticles); }
+drawParticles();
+const plans=document.querySelectorAll('.plan');
+plans.forEach(p=>{ p.addEventListener('click',()=>{ p.classList.toggle('active'); }); });
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+</script>
+
+</body>
+</html>
