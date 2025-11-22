@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/matheus/Desktop/index.html -->
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mercado Store – Loja Gamer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
     :root {
-        --primary: #1d4ed8;
-        --primary-dark: #153fa8;
+        --primary: #000000;
+        --primary-dark: #111111;
         --bg: #ffffff;
         --text: #1f2937;
         --card: #f3f4f6;
@@ -143,13 +145,41 @@
         text-align: center;
         font-weight: 600;
         text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* ALERTA PERSONALIZADO BONITO */
+    .alert-box {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--primary);
+        color: white;
+        padding: 18px 22px;
+        border-left: 5px solid var(--primary-dark);
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        display: none;
+        z-index: 200;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
+
 </head>
 <body>
 
 <header>
     <h1>Mercado Store</h1>
+
+    <img src="./index_files/13916c48-c9c4-4611-b3d7-04557c427aa8.png" alt="Logo" style="width:180px; height:auto; display:block;">
+
     <nav>
         <a href="#promo">Promoções</a>
         <a href="#produtos">Produtos</a>
@@ -172,14 +202,54 @@
 
     <h2 class="section-title" id="produtos">Todos os Produtos</h2>
     <div class="grid">
-        <div class="product"><h4>AMD Ryzen 9 7950X</h4><p>16 núcleos / 32 threads</p><p class="price">R$ 4.199,00</p><button class="buy-btn" onclick="openBuy('Ryzen 9 7950X','R$ 4.199,00')">Comprar</button></div>
-        <div class="product"><h4>Intel Core i9-13900K</h4><p>24 núcleos (8P + 16E)</p><p class="price">R$ 3.759,00</p><button class="buy-btn" onclick="openBuy('Intel i9-13900K','R$ 3.759,00')">Comprar</button></div>
-        <div class="product"><h4>ASUS ROG Strix Z790-E</h4><p>DDR5 • ATX</p><p class="price">R$ 6.818,00</p><button class="buy-btn" onclick="openBuy('ASUS Z790-E','R$ 6.818,00')">Comprar</button></div>
-        <div class="product"><h4>MSI MPG B650 Edge WiFi</h4><p>AM5 • DDR5</p><p class="price">R$ 1.489,00</p><button class="buy-btn" onclick="openBuy('MSI B650','R$ 1.489,00')">Comprar</button></div>
-        <div class="product"><h4>RTX 4090</h4><p>24GB GDDR6X</p><p class="price">R$ 12.600,00</p><button class="buy-btn" onclick="openBuy('RTX 4090','R$ 12.600,00')">Comprar</button></div>
-        <div class="product"><h4>Radeon RX 7900 XTX</h4><p>24GB GDDR6</p><p class="price">R$ 5.599,99</p><button class="buy-btn" onclick="openBuy('RX 7900 XTX','R$ 5.599,99')">Comprar</button></div>
-        <div class="product"><h4>Corsair Vengeance DDR5 32GB</h4><p>RGB • Alto desempenho</p><p class="price">R$ 899,00</p><button class="buy-btn" onclick="openBuy('Vengeance 32GB','R$ 899,00')">Comprar</button></div>
-        <div class="product"><h4>Samsung 980 Pro 2TB</h4><p>NVMe • PCIe 4.0</p><p class="price">R$ 799,00</p><button class="buy-btn" onclick="openBuy('980 Pro 2TB','R$ 799,00')">Comprar</button></div>
+        <div class="product">
+            <h4>AMD Ryzen 9 7950X</h4>
+            <p>16 núcleos / 32 threads</p>
+            <p class="price">R$ 4.199,00</p>
+            <button class="buy-btn" onclick="openBuy('Ryzen 9 7950X','R$ 4.199,00')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>Intel Core i9-13900K</h4>
+            <p>24 núcleos (8P + 16E)</p>
+            <p class="price">R$ 3.759,00</p>
+            <button class="buy-btn" onclick="openBuy('Intel i9-13900K','R$ 3.759,00')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>ASUS ROG Strix Z790-E</h4>
+            <p>DDR5 • ATX</p>
+            <p class="price">R$ 6.818,00</p>
+            <button class="buy-btn" onclick="openBuy('ASUS Z790-E','R$ 6.818,00')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>MSI MPG B650 Edge WiFi</h4>
+            <p>AM5 • DDR5</p>
+            <p class="price">R$ 1.489,00</p>
+            <button class="buy-btn" onclick="openBuy('MSI B650','R$ 1.489,00')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>RTX 4090</h4>
+            <p>24GB GDDR6X</p>
+            <p class="price">R$ 12.600,00</p>
+            <button class="buy-btn" onclick="openBuy('RTX 4090','R$ 12.600,00')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>Radeon RX 7900 XTX</h4>
+            <p>24GB GDDR6</p>
+            <p class="price">R$ 5.599,99</p>
+            <button class="buy-btn" onclick="openBuy('RX 7900 XTX','R$ 5.599,99')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>Corsair Vengeance DDR5 32GB</h4>
+            <p>RGB • Alto desempenho</p>
+            <p class="price">R$ 899,00</p>
+            <button class="buy-btn" onclick="openBuy('Vengeance 32GB','R$ 899,00')">Comprar</button>
+        </div>
+        <div class="product">
+            <h4>Samsung 980 Pro 2TB</h4>
+            <p>NVMe • PCIe 4.0</p>
+            <p class="price">R$ 799,00</p>
+            <button class="buy-btn" onclick="openBuy('980 Pro 2TB','R$ 799,00')">Comprar</button>
+        </div>
     </div>
 
     <h2 class="section-title" id="pagamento">Pagamento</h2>
@@ -187,9 +257,9 @@
     <div class="product" style="border-left:5px solid var(--primary);">
         <h3>Pagamento via PIX</h3>
         <p>Envie o valor para o número:</p>
-        <p style="font-size:20px; font-weight:700;">📱 17 99324-8765</p>
+        <p style="font-size:20px; font-weight:700;">📱 17 99324-****</p>
         <p>Código de compra (gerado automaticamente):</p>
-        <p id="codPix" style="font-size:20px; font-weight:700; color:var(--primary);"></p>
+        <p id="codPix" style="font-size:20px; font-weight:700; color:var(--primary);">MS-X2VMBZGC</p>
     </div>
 </div>
 
@@ -198,9 +268,17 @@
     <div class="modal">
         <h2 id="modalProduct"></h2>
         <p id="modalPrice"></p>
-        <a href="#pagamento" class="pay-link">Ir para pagamento</a>
+
+        <!-- BOTÃO ALTERADO -->
+        <a class="pay-link" onclick="showAlert()">Ir para pagamento</a>
+
         <button class="buy-btn" onclick="closeBuy()">Fechar</button>
     </div>
+</div>
+
+<!-- ALERTA BONITO -->
+<div class="alert-box" id="alertBox">
+    📞 Contate o vendedor: <b>15 99128-5655</b>
 </div>
 
 <script>
@@ -219,6 +297,17 @@ function gerarCodigo() {
     document.getElementById("codPix").innerText = "MS-" + r;
 }
 gerarCodigo();
+
+/* ALERTA LINDO */
+function showAlert() {
+    const box = document.getElementById("alertBox");
+
+    box.style.display = "block";
+
+    setTimeout(() => {
+        box.style.display = "none";
+    }, 4000);
+}
 </script>
 
 </body>
