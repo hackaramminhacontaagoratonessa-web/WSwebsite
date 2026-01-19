@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>WS Moddz - RGB Edition</title>
+<title>WS Moddz</title>
 
 <meta property="og:title" content="WS Moddz — Upagem GTA Enhanced / Legacy">
 <meta property="og:description" content="Upagem profissional de contas GTA. Planos variados.">
@@ -308,7 +308,7 @@ footer{
 <section class="hero">
   <div class="eyebrow">WS Moddz • Upagem de Contas GTA</div>
   <h2 class="title">Escolha o plano ideal para sua conta GTA</h2>
-  <p class="lead">De Starter até Expert — variedade de opções para todas as versões e perfis de jogador.</p>
+  <p class="lead">De Starter até Expert,variedade de opções para todas as versões e perfis de jogador.</p>
 
   <div class="plans" id="planos">
     <div class="plan">
@@ -343,7 +343,7 @@ footer{
       <h3>Expert</h3>
       <div class="plan-details">
         Unlock-All<br>Trajes modded<br>Corridinha & Carregamento MOD<br>25 veículos<br>Status modificados (KD, Data de criação do personagem, Tempo jogado, etc)<br>$ 500 milhões<br>Level até 8000
-        <div class="price">Preço: R$50</div>
+        <div class="price">Preço: R$60</div>
       </div>
     </div>
     <div class="plan">
